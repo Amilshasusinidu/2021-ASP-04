@@ -46,3 +46,10 @@ print(dim(expression_data))
 # Display the number of missing expression values
 cat("\nMissing expression values:\n")
 print(sum(is.na(expression_data)))
+
+# Save checked data for the analysis and visualisation scripts
+dir.create("data", showWarnings = FALSE)
+saveRDS(
+  list(expression_data = expression_data, sample_info = sample_info),
+  "data/leukemia_checked.rds"
+)
